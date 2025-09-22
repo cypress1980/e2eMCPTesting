@@ -5,7 +5,12 @@ class CartPage {
     }
 
     async clickCheckout() {
-        await this.page.click(this.checkoutButton);
+        try {
+            await this.page.click(this.checkoutButton);
+        } catch (error) {
+            console.error('Failed to click checkout button:', error);
+            throw error;
+        }
     }
 }
 
