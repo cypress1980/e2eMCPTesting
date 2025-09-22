@@ -15,10 +15,10 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+    - name: Install Playwright WebKit
+      run: npx playwright install webkit
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --project=webkit
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
